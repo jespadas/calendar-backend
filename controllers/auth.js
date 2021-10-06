@@ -1,21 +1,31 @@
 const { response } = require('express');
+const { validationResult } = require('express-validator');
 
 const registerUser = (req, res = response) => {
-	res.json({
+	const { name, email, password } = req.body;
+
+	return res.status(201).json({
 		ok: true,
 		msg: 'register',
+		name,
+		email,
+		password,
 	});
 };
 
 const loginUser = (req, res = response) => {
-	res.json({
+	const { email, password } = req.body;
+
+	return res.status(200).json({
 		ok: true,
 		msg: 'login',
+		email,
+		password,
 	});
-}
+};
 
-const renewUser = (req, res) => {
-	res.json({
+const renewToken = (req, res) => {
+	return res.json({
 		ok: true,
 		msg: 'renew',
 	});
@@ -23,6 +33,6 @@ const renewUser = (req, res) => {
 
 module.exports = {
 	registerUser,
-    loginUser,
-    renewUser
+	loginUser,
+	renewToken,
 };
