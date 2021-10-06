@@ -1,7 +1,2 @@
-# dotenv environment variables file
-.env
-.env.test
-.env.production
-
 # dependencies
 /node_modules
